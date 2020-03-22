@@ -16,30 +16,41 @@ public class Main {
 
         me.pet = dog;
 
+        me.setSalary(4000.);
+        System.out.println("my salary is: " + me.getSalary());
 
-        dog.feed();
-        dog.feed();
-        dog.feed();
+        Car fura = new Car("Mercedes","M4",1999,"Czarny",20000.);
+        me.setCar(fura);
+        me.getCar();
 
+        Human zona = new Human();
 
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-        dog.walk();
-
-        dog.feed();
-        dog.feed();
+        zona.shareCar(fura);
+        System.out.println("A samochód żony to: " );
+        zona.getCar();
+//        dog.feed();
+//        dog.feed();
+//        dog.feed();
+//
+//
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//        dog.walk();
+//
+//        dog.feed();
+//        dog.feed();
 //        System.out.println(dog);
 //        System.out.println(me.pet);
 //
