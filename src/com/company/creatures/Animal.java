@@ -1,4 +1,4 @@
-package com.company;
+package com.company.creatures;
 
 import java.io.File;
 
@@ -29,7 +29,7 @@ public class Animal {
         }
     }
 
-    void feed(){
+    public void feed(){
         if(weight>0)
             {
             weight++;
@@ -41,7 +41,7 @@ public class Animal {
         }
     }
 
-    void walk(){
+    public void walk(){
 
         if(--weight<=0)
             {

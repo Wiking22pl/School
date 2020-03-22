@@ -1,12 +1,12 @@
-package com.company;
+package com.company.devices;
 
 public class Car {
 
-    String marka;
-    String model;
-    Integer yearOfProduction;
-    String kolor;
-    Double cena;
+    public final String marka;
+    public final String model;
+    public final Integer yearOfProduction;
+    public final String kolor;
+    public final Double cena;
 
     public Car(String marka, String model, Integer yearOfProduction, String kolor, Double cena) {
         this.marka = marka;
@@ -14,5 +14,9 @@ public class Car {
         this.yearOfProduction = yearOfProduction;
         this.kolor = kolor;
         this.cena = cena;
+    }
+
+    public String toString(){
+        return marka+ " "+model+" "+yearOfProduction;
     }
 }
