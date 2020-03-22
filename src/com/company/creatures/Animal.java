@@ -15,15 +15,15 @@ public class Animal {
 
     public Animal(String species) {
         this.species = species;
-        if(species =="dog")
+        if(species.equals("dog"))
         {
             this.weight = DEFAULT_DOG_WEIGHT;
         }
-        else if(species == "mouse" )
+        else if(species.equals("mouse"))
         {
             this.weight = DEFAULT_MOUSE_WEIGHT;
         }
-        else if (species == "lion")
+        else if (species.equals("lion"))
         {
             this.weight = DEFAULT_LION_WEIGHT;
         }
