@@ -23,7 +23,7 @@ public class Main {
         me.setSalary(4000.);
         System.out.println("my salary is: " + me.getSalary());
 
-        Car fura = new Car("Mercedes","M4",1999,"Czarny",20000.);
+        Car fura = new Car("Mercedes","M4",20000.,1999,"Czarny");
         me.setCar(fura);
         me.getCar();
 
@@ -32,6 +32,14 @@ public class Main {
         zona.shareCar(fura);
         System.out.println("A samochód żony to: " );
         zona.getCar();
+
+        me.feed();
+
+        System.out.println("Sprawdzamy klasy");
+        System.out.println(me instanceof Human);
+        System.out.println(me instanceof Animal);
+        System.out.println(dog instanceof Human);
+        System.out.println(dog instanceof Animal);
 //        dog.feed();
 //        dog.feed();
 //        dog.feed();
