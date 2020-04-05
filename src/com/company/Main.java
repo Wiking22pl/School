@@ -43,8 +43,9 @@ public class Main {
 
 //        me.pet.beEaten();
 //        me.beEaten();
-        me.pet.sell();
-        me.sell();
+        me.pet.sell(zona,me,50.);
+        fura.sell(me,zona,1000.);
+        zona.sell(me,zona,0.);
 
 
 

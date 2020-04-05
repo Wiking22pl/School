@@ -1,5 +1,7 @@
 package com.company.devices;
 
+import com.company.creatures.Human;
+
 public class Car extends Device {
     public final String color;
     public final Double price;
@@ -11,8 +13,8 @@ public class Car extends Device {
     }
 
 
-    public String toString(){
-        return producer+ " "+model+" "+yearOfProduction;
+    public String toString() {
+        return producer + " " + model + " " + yearOfProduction;
     }
 
     @Override
@@ -20,8 +22,4 @@ public class Car extends Device {
         System.out.println("Wrum wrum");
     }
 
-    @Override
-    public void sell() {
-        System.out.println("Sprzedano samochód za "+price);
-    }
 }

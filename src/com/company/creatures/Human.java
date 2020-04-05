@@ -13,10 +13,12 @@ public class Human extends Animal{
     private Car car;
     private Double salary;
     public final static Double DEFAULT_HUMAN_WEIGHT=70.;
+    public double cash;
 
     public Human() {
         super("homo sapiens");
-        weight =DEFAULT_HUMAN_WEIGHT;
+        this.weight = DEFAULT_HUMAN_WEIGHT;
+        this.cash=1000d;
     }
 
     public void shareCar(Car dzielony){

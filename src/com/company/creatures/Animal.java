@@ -61,11 +61,17 @@ public class Animal implements Edible, Saleable {
     }
 
     @Override
-    public void sell() throws Exception {
+    public void sell(Human buyer, Human seller, Double price) throws Exception {
         if (this instanceof Human) {
             throw new Exception("Alarm przeciwniewolniczny!!!!!!!1!!!!!!1111!!!!!!11!!!1!!!11!!!!111!!!");
+        } else if (price < buyer.cash) {
+
+            buyer.cash -= price;
+            seller.cash += price;
+            System.out.println("Sprzedałeś swoje zwierze za " + price + " zł łajdaku");
         } else {
-            System.out.println("Sprzedałeś swoje zwierze łajdaku");
+            System.out.println("Nie masz wystarczająco dużo kasy");
         }
+
     }
 }
