@@ -24,11 +24,11 @@ public class Human extends Animal{
     }
 
     public void setCar(Car car) {
-        if(salary*3>car.cena) {
+        if(salary*3>car.price) {
             System.out.println("Samochód gupiony za gotówke");
             this.car = car;
         }
-        else if(salary*12>car.cena){
+        else if(salary*12>car.price){
             System.out.println("Samochód kupiony na kredyt");
             this.car = car;
         }
