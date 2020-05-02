@@ -4,7 +4,7 @@ import com.company.creatures.Human;
 
 public class Car extends Device {
     public final String color;
-    public final Double price;
+    public final Double price;  //
 
     public Car(String producer, String model, Double price, Integer yearOfProduction, String color) {
         super(producer, model, yearOfProduction);

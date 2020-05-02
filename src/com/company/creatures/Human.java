@@ -10,7 +10,7 @@ public class Human extends Animal {
     public Phone phone;
     public Animal pet;
 
-    private Car car;
+    private Car car;    //
     private Double salary;
     public final static Double DEFAULT_HUMAN_WEIGHT = 70.;
     public double cash;
@@ -25,7 +25,7 @@ public class Human extends Animal {
         car = dzielony;
     }
 
-    public void setCar(Car car) {
+    public void setCar(Car car) {   //
         if (salary * 3 > car.price) {
             System.out.println("Samochód gupiony za gotówke");
             this.car = car;
@@ -39,7 +39,7 @@ public class Human extends Animal {
 
     public void getCar() {
         System.out.println("I'm driving : " + car);
-    }
+    }   //
 
     public void setSalary(Double salary) {
 
