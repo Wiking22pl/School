@@ -20,14 +20,16 @@ public class Main {
 
         me.pet = dog;
 
+
         me.setSalary(4000.);
-        System.out.println("my salary is: " + me.getSalary());
 
         Car fura = new Car("Mercedes","M4",20000.,1999,"Czarny");
         me.setCar(fura);
         me.getCar();
 
         Human zona = new Human();
+
+        zona.setSalary(500d);
 
         zona.shareCar(fura);
         System.out.println("A samochód żony to: " );
@@ -43,9 +45,9 @@ public class Main {
 
 //        me.pet.beEaten();
 //        me.beEaten();
-        me.pet.sell(zona,me,50.);
-        fura.sell(me,zona,1000.);
-        zona.sell(me,zona,0.);
+//        me.pet.sell(zona,me,50.);
+//        fura.sell(me,zona,1000.);
+//        zona.sell(me,zona,0.);
 
 
 
