@@ -3,6 +3,7 @@ package com.company;
 import com.company.creatures.Animal;
 import com.company.creatures.Human;
 import com.company.devices.Car;
+import com.company.devices.Phone;
 
 public class Main {
 
@@ -44,9 +45,14 @@ public class Main {
             System.out.println("nie sa równe\n");
         }
 
+        Phone komura = new Phone("Nokia", "N95",2007);
+
         System.out.println(dog);
         System.out.println(fiat);
         System.out.println(me);
+
+        komura.turnOn();
+        fura.turnOn();
 
 //        me.feed();
 //
