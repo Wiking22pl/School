@@ -35,13 +35,26 @@ public class Main {
         System.out.println("A samochód żony to: " );
         zona.getCar();
 
-        me.feed();
+        Car fiat = new Car("Fiat", "Punto",15000., 2010,"Zielony");
+        Car fiat2 = new Car("Fiat", "Punto",15000., 2010,"Zielony");
 
-        System.out.println("Sprawdzamy klasy");
-        System.out.println(me instanceof Human);
-        System.out.println(me instanceof Animal);
-        System.out.println(dog instanceof Human);
-        System.out.println(dog instanceof Animal);
+        if (fiat == fiat2){
+            System.out.println("Są równe");
+        }else{
+            System.out.println("nie sa równe\n");
+        }
+
+        System.out.println(dog);
+        System.out.println(fiat);
+        System.out.println(me);
+
+//        me.feed();
+//
+//        System.out.println("Sprawdzamy klasy");
+//        System.out.println(me instanceof Human);
+//        System.out.println(me instanceof Animal);
+//        System.out.println(dog instanceof Human);
+//        System.out.println(dog instanceof Animal);
 
 //        me.pet.beEaten();
 //        me.beEaten();

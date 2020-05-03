@@ -7,9 +7,6 @@ public class Phone extends Device {
         super(producer, model, yearOfProduction);
     }
 
-    public String toString() {
-        return producer + " " + model + " " + yearOfProduction;
-    }
 
     @Override
     void turnOn() {

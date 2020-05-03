@@ -27,4 +27,9 @@ public abstract class Device implements Saleable {
             System.out.println("Nie masz wystarczająco dużo kasy");
         }
     }
+
+
+    public String toString() {
+        return producer + " " + model + " " + yearOfProduction;
+    }
 }

@@ -74,4 +74,8 @@ public class Animal implements Edible, Saleable {
         }
 
     }
+
+    public String toString() {
+        return name + " " + species + " " + weight;
+    }
 }
