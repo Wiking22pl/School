@@ -21,4 +21,20 @@ public class Car extends Device {
         return super.toString() + " " + color + " " + price;
     }
 
+    public void sell(Human buyer, Human seller, Double price) throws Exception {
+        if (seller.getCar() == this) {
+            try {
+                super.sell(buyer, seller, price);
+
+                buyer.setCar(this);
+                seller.setCar(null);
+            } catch (Exception e) {
+                System.out.println("Transakcja nie powiodła sie");
+            }
+
+        } else {
+            System.out.println("Sprzedawca nie jest posiadaczem tego telefonu");
+        }
+
+    }
 }

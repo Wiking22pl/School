@@ -13,7 +13,7 @@ public class Human extends Animal {
     private Car car;
     private Double salary;
     public final static Double DEFAULT_HUMAN_WEIGHT = 70.;
-    public double cash;
+    public Double cash;
 
     public Human() {
         super("homo sapiens");
@@ -21,11 +21,9 @@ public class Human extends Animal {
         this.cash = 1000d;
     }
 
-    public void shareCar(Car dzielony) {
-        car = dzielony;
-    }
+    // shareCar umożliwiałby sprzedawanie nieswoich samochodów
 
-    public void setCar(Car car) {
+    public void buyCar(Car car) {
         if (salary * 3 > car.price) {
             System.out.println("Samochód gupiony za gotówke");
             this.car = car;
@@ -37,8 +35,12 @@ public class Human extends Animal {
         }
     }
 
-    public void getCar() {
-        System.out.println("I'm driving : " + car);
+    public void setCar(Car c){
+        car = c;
+    }
+
+    public Car getCar() {
+        return car;
     }
 
     public void setSalary(Double salary) {

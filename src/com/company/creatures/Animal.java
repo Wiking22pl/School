@@ -64,13 +64,23 @@ public class Animal implements Edible, Saleable {
     public void sell(Human buyer, Human seller, Double price) throws Exception {
         if (this instanceof Human) {
             throw new Exception("Alarm przeciwniewolniczny!!!!!!!1!!!!!!1111!!!!!!11!!!1!!!11!!!!111!!!");
-        } else if (price < buyer.cash) {
+        } else if(seller.pet == this){
 
-            buyer.cash -= price;
-            seller.cash += price;
-            System.out.println("Sprzedałeś swoje zwierze za " + price + " zł łajdaku");
-        } else {
-            System.out.println("Nie masz wystarczająco dużo kasy");
+            if (price < buyer.cash) {
+
+                buyer.cash -= price;
+                seller.cash += price;
+
+                buyer.pet = this;
+                seller.pet = null;
+
+                System.out.println( buyer.firstName + " kupił(a) " + this + " od "+ seller.firstName + " za "+ price + " zł ");
+            } else {
+                System.out.println("Nie masz wystarczająco dużo kasy");
+            }
+        }
+        else{
+            System.out.println("Sprzedawca nie jest posiadaczem tego zwierzęcia");
         }
 
     }

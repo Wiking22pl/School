@@ -22,10 +22,13 @@ public abstract class Device implements Saleable {
 
             buyer.cash -= price;
             seller.cash += price;
-            System.out.println("Sprzedano " + this.toString() + " za " + price + " zł");
+
+            System.out.println( buyer.firstName + " kupił(a) " + this + " od "+ seller.firstName + " za "+ price + " zł ");
         } else {
             System.out.println("Nie masz wystarczająco dużo kasy");
+            throw new Exception("Niewystarczjące środki na koncie kupującego");
         }
+
     }
 
 

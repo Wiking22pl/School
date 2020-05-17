@@ -25,14 +25,15 @@ public class Main {
         me.setSalary(4000.);
 
         Car fura = new Car("Mercedes","M4",20000.,1999,"Czarny");
-        me.setCar(fura);
-        me.getCar();
+        me.buyCar(fura);
+        System.out.println("I'm driving : " + me.getCar());
 
         Human zona = new Human();
+        zona.cash = 5000.;
+        zona.firstName = "Zofia";
 
         zona.setSalary(500d);
 
-        zona.shareCar(fura);
         System.out.println("A samochód żony to: " );
         zona.getCar();
 
@@ -47,12 +48,22 @@ public class Main {
 
         Phone komura = new Phone("Nokia", "N95",2007);
 
-        System.out.println(dog);
-        System.out.println(fiat);
-        System.out.println(me);
 
-        komura.turnOn();
-        fura.turnOn();
+
+        me.pet.sell(zona,me,50.);
+        fura.sell(zona,me,1000.);
+//        fura.sell(zona,me,10000.);
+        System.out.println("I'm driving : " + me.getCar());
+        System.out.println("She's driving : " + zona.getCar());
+        zona.sell(me,zona,1.);
+
+
+//        System.out.println(dog);
+//        System.out.println(fiat);
+//        System.out.println(me);
+//
+//        komura.turnOn();
+//        fura.turnOn();
 
 //        me.feed();
 //
@@ -64,9 +75,6 @@ public class Main {
 
 //        me.pet.beEaten();
 //        me.beEaten();
-//        me.pet.sell(zona,me,50.);
-//        fura.sell(me,zona,1000.);
-//        zona.sell(me,zona,0.);
 
 
 
