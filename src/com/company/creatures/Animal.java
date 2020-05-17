@@ -4,7 +4,7 @@ import com.company.Saleable;
 
 import java.io.File;
 
-public class Animal implements Edible, Saleable {
+public abstract class Animal implements Saleable,Feedable {
 
     final String species;
     protected Double weight;
@@ -14,6 +14,7 @@ public class Animal implements Edible, Saleable {
     public static final Double DEFAULT_DOG_WEIGHT = 10.0;
     public static final Double DEFAULT_MOUSE_WEIGHT = 0.1;
     public static final Double DEFAULT_LION_WEIGHT = 20.0;
+    public static final Double DEFAULT_COW_WEIGHT = 200.0;
 
     public Animal(String species) {
         this.species = species;
@@ -27,12 +28,24 @@ public class Animal implements Edible, Saleable {
             case "lion":
                 this.weight = DEFAULT_LION_WEIGHT;
                 break;
+            case "cow":
+                this.weight = DEFAULT_COW_WEIGHT;
+                break;
         }
     }
 
     public void feed() {
         if (weight > 0) {
             weight++;
+            System.out.println("thx for food bro, my weight is now " + weight);
+        } else {
+            System.out.println("You can't feed me BECAUSE I'M FUCKING DEAD!!!!");
+        }
+    }
+
+    public void feed(double foodWeight) {
+        if (weight > 0) {
+            weight += foodWeight;
             System.out.println("thx for food bro, my weight is now " + weight);
         } else {
             System.out.println("You can't feed me BECAUSE I'M FUCKING DEAD!!!!");
@@ -47,16 +60,6 @@ public class Animal implements Edible, Saleable {
             System.out.println("FEED MEEEEEEEEEEEE!!!!!!!!!!!!111111111111111 ");
         } else {
             System.out.println("Thx for cardio bro my weight is now " + weight);
-        }
-    }
-
-    @Override
-    public void beEaten() throws Exception {
-        if (this instanceof Human) {
-            throw new Exception("Porąbało cie kanibalu?");
-        } else {
-            System.out.println("mniam mniam");
-            this.weight = 0.0;
         }
     }
 

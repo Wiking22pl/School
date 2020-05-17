@@ -1,6 +1,8 @@
 package com.company;
 
 import com.company.creatures.Animal;
+import com.company.creatures.FarmAnimal;
+import com.company.creatures.Pet;
 import com.company.creatures.Human;
 import com.company.devices.Car;
 import com.company.devices.Phone;
@@ -12,11 +14,11 @@ public class Main {
         Human me = new Human();
         me.firstName = "Kacper";
         me.lastName = "Warda";
-        me.pet = new Animal("mouse");
+        me.pet = new Pet("mouse");
         me.pet.name = "Myszojeleń";
         me.pet.feed();
 
-        Animal dog = new Animal("dog");
+        Pet dog = new Pet("dog");
         dog.name = "Akita";
 
         me.pet = dog;
@@ -48,14 +50,22 @@ public class Main {
 
         Phone komura = new Phone("Nokia", "N95",2007);
 
+        FarmAnimal cow = new FarmAnimal("cow");
+        cow.feed(10);
+        cow.beEaten();
+        cow.feed();
+
+        dog.feed();
+        dog.feed(0.5);
 
 
-        me.pet.sell(zona,me,50.);
-        fura.sell(zona,me,1000.);
-//        fura.sell(zona,me,10000.);
-        System.out.println("I'm driving : " + me.getCar());
-        System.out.println("She's driving : " + zona.getCar());
-        zona.sell(me,zona,1.);
+
+//        me.pet.sell(zona,me,50.);
+//        fura.sell(zona,me,1000.);
+////        fura.sell(zona,me,10000.);
+//        System.out.println("I'm driving : " + me.getCar());
+//        System.out.println("She's driving : " + zona.getCar());
+//        zona.sell(me,zona,1.);
 
 
 //        System.out.println(dog);
