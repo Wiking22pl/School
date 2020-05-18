@@ -2,7 +2,7 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
-public class Car extends Device {
+public abstract class Car extends Device {
     public final String color;
     public final Double price;
 
@@ -37,4 +37,6 @@ public class Car extends Device {
         }
 
     }
+
+    public abstract void refuel();
 }

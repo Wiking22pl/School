@@ -4,8 +4,7 @@ import com.company.creatures.Animal;
 import com.company.creatures.FarmAnimal;
 import com.company.creatures.Pet;
 import com.company.creatures.Human;
-import com.company.devices.Car;
-import com.company.devices.Phone;
+import com.company.devices.*;
 
 public class Main {
 
@@ -16,7 +15,6 @@ public class Main {
         me.lastName = "Warda";
         me.pet = new Pet("mouse");
         me.pet.name = "Myszojeleń";
-        me.pet.feed();
 
         Pet dog = new Pet("dog");
         dog.name = "Akita";
@@ -26,7 +24,7 @@ public class Main {
 
         me.setSalary(4000.);
 
-        Car fura = new Car("Mercedes","M4",20000.,1999,"Czarny");
+        Car fura = new Disel("Mercedes","M4",20000.,1999,"Czarny");
         me.buyCar(fura);
         System.out.println("I'm driving : " + me.getCar());
 
@@ -38,15 +36,16 @@ public class Main {
 
         System.out.println("A samochód żony to: " );
         zona.getCar();
+        System.out.println();
 
-        Car fiat = new Car("Fiat", "Punto",15000., 2010,"Zielony");
-        Car fiat2 = new Car("Fiat", "Punto",15000., 2010,"Zielony");
+        Car fiat = new LPG("Fiat", "Punto",15000., 2010,"Zielony");
+        Car fiat2 = new Electric("Fiat", "Terra",25000., 2020,"niebieski");
 
-        if (fiat == fiat2){
-            System.out.println("Są równe");
-        }else{
-            System.out.println("nie sa równe\n");
-        }
+//        if (fiat == fiat2){
+//            System.out.println("Są równe");
+//        }else{
+//            System.out.println("nie sa równe\n");
+//        }
 
         Phone komura = new Phone("Nokia", "N95",2007);
 
@@ -57,6 +56,11 @@ public class Main {
 
         dog.feed();
         dog.feed(0.5);
+        System.out.println();
+
+        fura.refuel();
+        fiat.refuel();
+        fiat2.refuel();
 
 
 
