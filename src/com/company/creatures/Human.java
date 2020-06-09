@@ -2,6 +2,8 @@ package com.company.creatures;
 
 import com.company.devices.Car;
 import com.company.devices.Phone;
+import java. util. Arrays;
+import java.util.Comparator;
 
 public class Human extends Animal {
 
@@ -10,37 +12,60 @@ public class Human extends Animal {
     public Phone phone;
     public Animal pet;
 
-    private Car car;
+    public Car[] garage;
     private Double salary;
-    public final static Double DEFAULT_HUMAN_WEIGHT = 70.;
     public Double cash;
+    public final static Double DEFAULT_HUMAN_WEIGHT = 70.;
+    public final static Integer DEFAULT_GARAGE_SIZE = 2;
 
     public Human() {
         super("homo sapiens");
         this.weight = DEFAULT_HUMAN_WEIGHT;
         this.cash = 1000d;
+        this.garage = new Car[DEFAULT_GARAGE_SIZE];
+    }
+
+    public Human(Integer garage_size) {
+        super("homo sapiens");
+        this.weight = DEFAULT_HUMAN_WEIGHT;
+        this.cash = 1000d;
+        this.garage = new Car[garage_size];
     }
 
     // shareCar umożliwiałby sprzedawanie nieswoich samochodów
 
-    public void buyCar(Car car) {
-        if (salary * 3 > car.price) {
-            System.out.println("Samochód gupiony za gotówke");
-            this.car = car;
-        } else if (salary * 12 > car.price) {
-            System.out.println("Samochód kupiony na kredyt");
-            this.car = car;
-        } else {
-            System.out.println("Na samochód cię nie stać cię biedaku");
+//    public void buyCar(Car car) {
+//        if (salary * 3 > car.price) {
+//            System.out.println("Samochód gupiony za gotówke");
+//            this.car = car;
+//        } else if (salary * 12 > car.price) {
+//            System.out.println("Samochód kupiony na kredyt");
+//            this.car = car;
+//        } else {
+//            System.out.println("Na samochód cię nie stać cię biedaku");
+//        }
+//    }
+
+    public void setCar(Car c, Integer miejsce) {
+        garage[miejsce] = c;
+    }
+
+    public Car getCar(Integer miejsce) {
+        return garage[miejsce];
+    }
+
+    public Double cars_Value() {
+        Double a = 0.;
+        for (int i = 0; i < garage.length; i++) {
+            if (garage[i] != null) {
+                a += garage[i].value;
+            }
         }
+        return a;
     }
 
-    public void setCar(Car c){
-        car = c;
-    }
-
-    public Car getCar() {
-        return car;
+    public void sort_Garage(){
+        Arrays.sort(garage);
     }
 
     public void setSalary(Double salary) {
@@ -61,7 +86,7 @@ public class Human extends Animal {
     }
 
     public String toString() {
-        return firstName + " " + lastName + " " + salary + "   samochód: " + car + "   zwierzak: " + pet;
+        return firstName + " " + lastName + " " + salary + "   samochody: " + garage + "   zwierzak: " + pet;
     }
 
 

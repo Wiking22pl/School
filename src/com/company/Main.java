@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        Human me = new Human();
+        Human me = new Human(3);
         me.firstName = "Kacper";
         me.lastName = "Warda";
         me.pet = new Pet("mouse");
@@ -23,10 +23,8 @@ public class Main {
 
 
         me.setSalary(4000.);
+        System.out.println();
 
-        Car fura = new Disel("Mercedes","M4",20000.,1999,"Czarny");
-        me.buyCar(fura);
-        System.out.println("I'm driving : " + me.getCar());
 
         Human zona = new Human();
         zona.cash = 5000.;
@@ -34,12 +32,8 @@ public class Main {
 
         zona.setSalary(500d);
 
-        System.out.println("A samochód żony to: " );
-        zona.getCar();
-        System.out.println();
-
         Car fiat = new LPG("Fiat", "Punto",15000., 2010,"Zielony");
-        Car fiat2 = new Electric("Fiat", "Terra",25000., 2020,"niebieski");
+        Car fiat2 = new Electric("Fiat", "Terra",27000., 2020,"niebieski");
 
 //        if (fiat == fiat2){
 //            System.out.println("Są równe");
@@ -54,21 +48,32 @@ public class Main {
         cow.beEaten();
         cow.feed();
 
-        dog.feed();
-        dog.feed(0.5);
+//        dog.feed();
+//        dog.feed(0.5);
+        System.out.println();
+
+        Car fura = new Disel("Mercedes","M4",11000.,1999,"Czarny");
+        me.garage[0] = (fura);
+        me.garage[1]= fiat;
+        me.garage[2]= fiat2;
+        System.out.println("I'm driving : " + me.getCar(0) + ",  " + me.getCar(1) + ", " + me.getCar(2));
+        System.out.println("Wartość moich fur: " + me.cars_Value());
+        System.out.println("She's driving : " + zona.getCar(0));
         System.out.println();
 
         fura.refuel();
         fiat.refuel();
         fiat2.refuel();
+        System.out.println();
 
 
 
 //        me.pet.sell(zona,me,50.);
-//        fura.sell(zona,me,1000.);
-////        fura.sell(zona,me,10000.);
-//        System.out.println("I'm driving : " + me.getCar());
-//        System.out.println("She's driving : " + zona.getCar());
+        fura.sell(zona,me,1000.);
+//        fura.sell(zona,me,10000.);
+        System.out.println("I'm driving : " + me.getCar(0) + ", " + me.getCar(1) + ", " + me.getCar(2));
+        System.out.println("Wartość moich fur: " + me.cars_Value());
+        System.out.println("She's driving : " + zona.getCar(0));
 //        zona.sell(me,zona,1.);
 
 

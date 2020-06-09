@@ -2,13 +2,12 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
-public abstract class Car extends Device {
+public abstract class Car extends Device implements Comparable<Car> {
     public final String color;
-    public final Double price;
 
-    public Car(String producer, String model, Double price, Integer yearOfProduction, String color) {
+    public Car(String producer, String model, Double value, Integer yearOfProduction, String color) {
         super(producer, model, yearOfProduction);
-        this.price = price;
+        this.value = value;
         this.color = color;
     }
 
@@ -18,25 +17,54 @@ public abstract class Car extends Device {
     }
 
     public String toString() {
-        return super.toString() + " " + color + " " + price;
+        return super.toString() + " " + color + " " + value;
     }
 
     public void sell(Human buyer, Human seller, Double price) throws Exception {
-        if (seller.getCar() == this) {
-            try {
-                super.sell(buyer, seller, price);
+        try {
+            boolean seller_owns_this_car = false;
+            boolean buyer_has_a_parking_place = false;
+            int i, j;
 
-                buyer.setCar(this);
-                seller.setCar(null);
-            } catch (Exception e) {
-                System.out.println("Transakcja nie powiodła sie");
+            for (i = 0; i < seller.garage.length; i++) {
+                if (seller.garage[i] == this) {
+                    seller_owns_this_car = true;
+                    break;
+                }
+            }
+            for (j = 0; j < buyer.garage.length; j++) {
+                if (buyer.garage[i] == null) {
+                    buyer_has_a_parking_place = true;
+                    break;
+                }
             }
 
-        } else {
-            System.out.println("Sprzedawca nie jest posiadaczem tego telefonu");
+            if (seller_owns_this_car) {
+                if (buyer_has_a_parking_place) {
+                    super.sell(buyer, seller, price);       //Metoda Device.sell zajmuje się wymianą gotówki
+
+                    buyer.setCar(this, j);
+                    seller.setCar(null, i);
+                }else {
+                    System.out.println("Kupujący nie ma miejsca w garażu");
+                    throw new Exception();
+                }
+
+            } else {
+                System.out.println("Sprzedawca nie jest posiadaczem tego samochodu albo ");
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            System.out.println("Transakcja nie powiodła sie");
         }
 
     }
 
     public abstract void refuel();
+
+    @Override
+    public int compareTo(Car c) {
+        int result = this.yearOfProduction.compareTo(c.yearOfProduction);
+        return result;
+    }
 }
