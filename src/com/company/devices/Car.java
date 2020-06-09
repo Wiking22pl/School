@@ -2,8 +2,12 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Car extends Device implements Comparable<Car> {
     public final String color;
+    public List<Human> owners = new ArrayList<Human>();
 
     public Car(String producer, String model, Double value, Integer yearOfProduction, String color) {
         super(producer, model, yearOfProduction);
@@ -18,6 +22,23 @@ public abstract class Car extends Device implements Comparable<Car> {
 
     public String toString() {
         return super.toString() + " " + color + " " + value;
+    }
+
+    public Boolean was_owner(Human owner) {
+        return owners.contains(owner);
+    }
+
+    public Boolean have_they_sold(Human seller, Human buyer) {
+        for (int i = 0; i < (owners.size() - 1); i++){
+            if((owners.get(i) == seller) && (owners.get(i+1) == buyer)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int number_of_times_sold(){
+        return (owners.size() -1) ;
     }
 
     public void sell(Human buyer, Human seller, Double price) throws Exception {
@@ -39,19 +60,20 @@ public abstract class Car extends Device implements Comparable<Car> {
                 }
             }
 
-            if (seller_owns_this_car) {
+            if (seller_owns_this_car && (owners.get(owners.size() - 1)) == seller) {
                 if (buyer_has_a_parking_place) {
                     super.sell(buyer, seller, price);       //Metoda Device.sell zajmuje się wymianą gotówki
 
                     buyer.setCar(this, j);
                     seller.setCar(null, i);
-                }else {
+                    owners.add(buyer);
+                } else {
                     System.out.println("Kupujący nie ma miejsca w garażu");
                     throw new Exception();
                 }
 
             } else {
-                System.out.println("Sprzedawca nie jest posiadaczem tego samochodu albo ");
+                System.out.println("Sprzedawca nie posiada tego samochodu albo nie jest ostatnim właścicielem");
                 throw new Exception();
             }
         } catch (Exception e) {

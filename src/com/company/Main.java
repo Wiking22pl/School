@@ -29,8 +29,10 @@ public class Main {
         Human zona = new Human();
         zona.cash = 5000.;
         zona.firstName = "Zofia";
-
         zona.setSalary(500d);
+
+        Human stefan = new Human();
+        stefan.firstName = "Stefan";
 
         Car fiat = new LPG("Fiat", "Punto",15000., 2010,"Zielony");
         Car fiat2 = new Electric("Fiat", "Terra",27000., 2020,"niebieski");
@@ -54,8 +56,12 @@ public class Main {
 
         Car fura = new Disel("Mercedes","M4",11000.,1999,"Czarny");
         me.garage[0] = (fura);
+        fura.owners.add(me);
         me.garage[1]= fiat;
+        fiat.owners.add(me);
         me.garage[2]= fiat2;
+        fiat2.owners.add(me);
+
         System.out.println("I'm driving : " + me.getCar(0) + ",  " + me.getCar(1) + ", " + me.getCar(2));
         System.out.println("Wartość moich fur: " + me.cars_Value());
         System.out.println("She's driving : " + zona.getCar(0));
@@ -74,7 +80,12 @@ public class Main {
         System.out.println("I'm driving : " + me.getCar(0) + ", " + me.getCar(1) + ", " + me.getCar(2));
         System.out.println("Wartość moich fur: " + me.cars_Value());
         System.out.println("She's driving : " + zona.getCar(0));
-//        zona.sell(me,zona,1.);
+
+        System.out.println("\nCzy byłem właścicielem Mercedesa: " + fura.was_owner(me));
+        System.out.println("Czy Stefan był właścicielem Mercedesa: " + fura.was_owner(stefan));
+        System.out.println("Czy żona sprzedała mi Mercedesa: " + fura.have_they_sold(zona,me));
+        System.out.println("Czy ja sprzedałem żonie Mercedesa: " + fura.have_they_sold(me,zona));
+        System.out.println("Tyle razy Mercedes był sprzedany: : " + fura.number_of_times_sold());
 
 
 //        System.out.println(dog);
