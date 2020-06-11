@@ -102,8 +102,9 @@ public class Main {
         komura.installApp(angry_birds);
         komura.listAllAppsAlphabetical();
         komura.listAllFreeApps();
+        System.out.println();
 
-        System.out.println("\nCzy chrome jest zainstalowany: " + komura.isThisAppInstalled(chrome));
+        System.out.println("Czy chrome jest zainstalowany: " + komura.isThisAppInstalled(chrome));
         System.out.println("Czy aplikacja do gotowania jest zainstalowana: " + komura.isThisAppInstalled(feta));
         System.out.println("Czy aplikacja o nazwie google play jest zainstalowana: " + komura.isThisAppInstalled("Google Play"));
         System.out.println();
