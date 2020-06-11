@@ -66,7 +66,7 @@ public class Phone extends Device {
 
     public boolean isThisAppInstalled(String name){
         for (int i =0; i<apps_installed.size();i++){
-            if ( name == apps_installed.get(i).name){
+            if ( name.equals(apps_installed.get(i).name)){
                 return true;
             }
         }
